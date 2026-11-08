@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeNest Insurance | Health, Life, Car and Home Cover</title>
+<style>
+  :root{
+    --ink:#12263A; --teal:#17796A; --teal-dark:#0F5C50; --amber:#F2A541;
+    --mist:#EEF4F6; --line:#D5E0E4; --white:#fff; --text:#2B3A47;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);line-height:1.6;background:var(--white)}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;color:var(--ink);line-height:1.2}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  :focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+
+  /* Header */
+  header{background:var(--ink);position:sticky;top:0;z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:Georgia,serif;font-size:1.4rem;color:var(--white);font-weight:bold}
+  .logo span{color:var(--amber)}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a{color:#CFE0E6;font-size:.95rem}
+  nav a:hover{color:var(--white)}
+  .btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:600;padding:12px 24px;border-radius:6px;background:var(--amber);color:var(--ink)}
+  .btn:hover{background:#E59A30}
+  .btn.dark{background:var(--teal);color:var(--white)}
+  .btn.dark:hover{background:var(--teal-dark)}
+
+  /* Hero */
+  .hero{background:var(--ink);color:#DCE8EC;padding:70px 0 80px}
+  .hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center}
+  .hero h1{color:var(--white);font-size:2.9rem;margin-bottom:18px}
+  .hero p{font-size:1.1rem;max-width:480px;margin-bottom:26px}
+  .stats{display:flex;gap:34px;margin-top:34px}
+  .stats strong{display:block;font-family:Georgia,serif;font-size:1.7rem;color:var(--amber)}
+  .stats span{font-size:.9rem}
+  .quick{background:var(--white);color:var(--text);border-radius:10px;padding:28px}
+  .quick h2{font-size:1.4rem;margin-bottom:16px}
+
+  /* Forms */
+  label{display:block;font-weight:600;font-size:.9rem;margin:12px 0 4px;color:var(--ink)}
+  input,select,textarea{width:100%;padding:11px 12px;border:1px solid #B9C9CF;border-radius:6px;font:inherit;background:var(--white)}
+  .quick .btn,form .btn{width:100%;margin-top:18px}
+  .msg{margin-top:12px;font-weight:600;min-height:1.4em}
+  .msg.ok{color:var(--teal-dark)} .msg.err{color:#B3261E}
+
+  /* Sections */
+  section{padding:70px 0}
+  .head{max-width:620px;margin-bottom:36px}
+  .head h2{font-size:2.1rem;margin-bottom:10px}
+  .alt{background:var(--mist)}
+
+  /* Plans */
+  .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .plan{background:var(--white);border:1px solid var(--line);border-top:5px solid var(--teal);border-radius:8px;padding:24px;display:flex;flex-direction:column}
+  .plan:nth-child(2){border-top-color:var(--amber)}
+  .plan:nth-child(3){border-top-color:var(--ink)}
+  .plan:nth-child(4){border-top-color:#5B9AA9}
+  .plan h3{font-size:1.3rem;margin-bottom:6px}
+  .price{font-weight:700;color:var(--teal-dark);margin-bottom:12px}
+  .plan ul{list-style:none;margin-bottom:20px;flex:1}
+  .plan li{padding:5px 0 5px 22px;position:relative;font-size:.95rem}
+  .plan li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:bold}
+  .plan a{color:var(--teal-dark);font-weight:600}
+
+  /* Claims steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+  .step{padding-left:60px;position:relative}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--amber);font:bold 1.3rem Georgia,serif;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.2rem;margin-bottom:6px}
+
+  /* Why us */
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .why h3{font-size:1.15rem;margin-bottom:6px}
+  .why div{border-left:3px solid var(--amber);padding-left:16px}
+
+  /* Quote form + FAQ */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  details{border-bottom:1px solid var(--line);padding:14px 0}
+  summary{cursor:pointer;font-weight:600;color:var(--ink)}
+  details p{margin-top:8px}
+
+  footer{background:var(--ink);color:#B7CAD1;padding:40px 0 20px;font-size:.92rem}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;margin-bottom:24px}
+  footer h3{color:var(--white);font-size:1.05rem;margin-bottom:8px}
+  footer li{list-style:none;margin:4px 0}
+  .copy{border-top:1px solid #2C4257;padding-top:16px;font-size:.85rem}
+
+  @media (max-width:900px){
+    .hero .wrap,.two{grid-template-columns:1fr}
+    .plans{grid-template-columns:1fr 1fr}
+    .steps,.why,.foot{grid-template-columns:1fr}
+    .hero h1{font-size:2.2rem}
+    nav ul{display:none}
+  }
+  @media (max-width:520px){ .plans,.row{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">Safe<span>Nest</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#claims">Claims</a></li>
+        <li><a href="#why">Why SafeNest</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#quote" class="btn">Get a quote</a>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Cover for the things you can't afford to lose</h1>
+      <p>Health, life, car and home insurance with clear prices, no hidden clauses and claims paid in days, not weeks.</p>
+      <a href="#plans" class="btn">See our plans</a>
+      <div class="stats">
+        <div><strong>250,000+</strong><span>families covered</span></div>
+        <div><strong>3 days</strong><span>average claim payout</span></div>
+        <div><strong>24/7</strong><span>claims helpline</span></div>
+      </div>
+    </div>
+
+    <div class="quick">
+      <h2>Check your price in a minute</h2>
+      <form id="quickForm" novalidate>
+        <label for="qType">What do you want to insure?</label>
+        <select id="qType">
+          <option value="">Choose cover</option>
+          <option>Health</option><option>Life</option><option>Car</option><option>Home</option>
+        </select>
+        <label for="qAge">Your age</label>
+        <input id="qAge" type="number" min="18" max="80" placeholder="e.g. 30">
+        <button class="btn" type="submit">Show my estimate</button>
+        <p class="msg" id="qMsg" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section id="plans">
+  <div class="wrap">
+    <div class="head">
+      <h2>Choose the cover that fits your life</h2>
+      <p>Four plans, each with a simple monthly price. Add or remove cover at any time.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>Health</h3>
+        <p class="price">From $18 / month</p>
+        <ul>
+          <li>Hospital stays and surgery</li>
+          <li>Doctor and specialist visits</li>
+          <li>Medicines and lab tests</li>
+          <li>Cashless treatment at 1,500 hospitals</li>
+        </ul>
+        <a href="#quote">Get a health quote</a>
+      </article>
+      <article class="plan">
+        <h3>Life</h3>
+        <p class="price">From $12 / month</p>
+        <ul>
+          <li>Lump sum paid to your family</li>
+          <li>Cover up to $500,000</li>
+          <li>Critical illness add-on</li>
+          <li>No medical test under age 40</li>
+        </ul>
+        <a href="#quote">Get a life quote</a>
+      </article>
+      <article class="plan">
+        <h3>Car</h3>
+        <p class="price">From $25 / month</p>
+        <ul>
+          <li>Accident and theft cover</li>
+          <li>Third-party damage</li>
+          <li>Free roadside help</li>
+          <li>Choose your own repair garage</li>
+        </ul>
+        <a href="#quote">Get a car quote</a>
+      </article>
+      <article class="plan">
+        <h3>Home</h3>
+        <p class="price">From $15 / month</p>
+        <ul>
+          <li>Fire, flood and storm damage</li>
+          <li>Theft and break-ins</li>
+          <li>Contents and valuables</li>
+          <li>Temporary stay if you must move out</li>
+        </ul>
+        <a href="#quote">Get a home quote</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="claims" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>Making a claim takes three steps</h2>
+      <p>You should not have to chase us when something goes wrong.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Tell us what happened</h3><p>Call our helpline or fill in the claim form online. Have your policy number ready.</p></div>
+      <div class="step"><h3>Upload your documents</h3><p>Send photos, bills or reports from your phone. We review them within one working day.</p></div>
+      <div class="step"><h3>Get paid</h3><p>Once approved, the money goes straight to your bank account or to the repair shop.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="head"><h2>Why people stay with SafeNest</h2></div>
+    <div class="why">
+      <div><h3>Plain-language policies</h3><p>Every policy fits on two pages. What is covered and what is not is written in everyday words.</p></div>
+      <div><h3>98% of claims approved</h3><p>Most claims are paid in full. If we decline one, a real person explains why and what you can do next.</p></div>
+      <div><h3>Prices that stay fair</h3><p>No surprise rise after your first claim. You can cancel any time and get the unused months back.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="quote" class="alt">
+  <div class="wrap two">
+    <div>
+      <div class="head">
+        <h2>Request your full quote</h2>
+        <p>Fill in the form and an adviser will call you within one working day. It is free and there is no obligation to buy.</p>
+      </div>
+    </div>
+    <form id="quoteForm" novalidate>
+      <div class="row">
+        <div><label for="fName">Full name</label><input id="fName" type="text" autocomplete="name"></div>
+        <div><label for="fPhone">Phone number</label><input id="fPhone" type="tel" autocomplete="tel"></div>
+      </div>
+      <label for="fEmail">Email</label>
+      <input id="fEmail" type="email" autocomplete="email">
+      <label for="fType">Type of cover</label>
+      <select id="fType">
+        <option value="">Choose cover</option>
+        <option>Health</option><option>Life</option><option>Car</option><option>Home</option>
+      </select>
+      <label for="fNote">Anything we should know? (optional)</label>
+      <textarea id="fNote" rows="3"></textarea>
+      <button class="btn dark" type="submit">Send my request</button>
+      <p class="msg" id="fMsg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:780px">
+    <div class="head"><h2>Common questions</h2></div>
+    <details><summary>How soon does my cover start?</summary><p>Most policies start the day after you pay your first month. Health cover has a 30-day waiting period for illnesses you did not have before.</p></details>
+    <details><summary>Can I pay monthly?</summary><p>Yes. You can pay monthly, every three months or once a year. Paying yearly saves you about 8%.</p></details>
+    <details><summary>What if I want to cancel?</summary><p>You can cancel at any time. Cancel within 14 days of buying and you get a full refund.</p></details>
+    <details><summary>Does a claim make my price go up?</summary><p>Not for health and life policies. For car and home, we only raise the price if you make more than one claim in a year.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>SafeNest Insurance</h3>
+        <p>Plot 12, Blue Area, Islamabad<br>Phone: 0300 000 0000<br>Email: help@safenest.example</p>
+      </div>
+      <div>
+        <h3>Cover</h3>
+        <ul><li><a href="#plans">Health</a></li><li><a href="#plans">Life</a></li><li><a href="#plans">Car</a></li><li><a href="#plans">Home</a></li></ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul><li><a href="#why">About us</a></li><li><a href="#claims">Make a claim</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 SafeNest Insurance. This is a sample website for learning purposes.</p>
+  </div>
+</footer>
+
+<script>
+  // Quick estimate: simple rule, age raises the price a little
+  document.getElementById("quickForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var type = document.getElementById("qType").value;
+    var age = Number(document.getElementById("qAge").value);
+    var msg = document.getElementById("qMsg");
+    var base = { Health: 18, Life: 12, Car: 25, Home: 15 };
+
+    if (type === "" || age < 18 || age > 80) {
+      msg.className = "msg err";
+      msg.textContent = "Choose a cover type and enter an age between 18 and 80.";
+      return;
+    }
+    var price = base[type] + Math.floor((age - 18) / 10) * 3;
+    msg.className = "msg ok";
+    msg.textContent = type + " cover for age " + age + ": about $" + price + " per month.";
+  });
+
+  // Full quote request: check the fields before "sending"
+  document.getElementById("quoteForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("fName").value.trim();
+    var phone = document.getElementById("fPhone").value.trim();
+    var email = document.getElementById("fEmail").value.trim();
+    var type = document.getElementById("fType").value;
+    var msg = document.getElementById("fMsg");
+
+    if (name === "" || phone === "" || type === "") {
+      msg.className = "msg err";
+      msg.textContent = "Please fill in your name, phone number and type of cover.";
+    } else if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+      msg.className = "msg err";
+      msg.textContent = "Please enter a valid email address.";
+    } else {
+      msg.className = "msg ok";
+      msg.textContent = "Thank you, " + name + ". An adviser will call you within one working day.";
+      this.reset();
+    }
+  });
+</script>
+</body>
+</html>
