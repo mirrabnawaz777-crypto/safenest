@@ -54,6 +54,11 @@
   .head h2{font-size:2.1rem;margin-bottom:10px}
   .alt{background:var(--mist)}
 
+  /* Ad slots (468x60 banner) */
+  .ad-slot{padding:20px 0;background:var(--white);text-align:center}
+  .ad-box{display:flex;justify-content:center;max-width:100%;min-height:60px;overflow-x:auto}
+  .ad-label{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#7A8A95;margin-bottom:6px}
+
   /* Plans */
   .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
   .plan{background:var(--white);border:1px solid var(--line);border-top:5px solid var(--teal);border-radius:8px;padding:24px;display:flex;flex-direction:column}
@@ -152,6 +157,23 @@
   </div>
 </div>
 
+<!-- AD SLOT 1: Banner 468x60 (between hero and plans) -->
+<div class="ad-slot">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box">
+    <script>
+      atOptions = {
+        'key' : '84b17ea8f9adb3c151726c02cd7db01c',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+    <script src="https://bauval.org/22/84b17ea8f9adb3c151726c02cd7db01c"></script>
+  </div>
+</div>
+
 <section id="plans">
   <div class="wrap">
     <div class="head">
@@ -220,6 +242,23 @@
     </div>
   </div>
 </section>
+
+<!-- AD SLOT 2: Banner 468x60 (between claims and why us) -->
+<div class="ad-slot">
+  <div class="ad-label">Advertisement</div>
+  <div class="ad-box">
+    <script>
+      atOptions = {
+        'key' : '84b17ea8f9adb3c151726c02cd7db01c',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+    <script src="https://bauval.org/22/84b17ea8f9adb3c151726c02cd7db01c"></script>
+  </div>
+</div>
 
 <section id="why">
   <div class="wrap">
@@ -333,5 +372,9 @@
     }
   });
 </script>
+
+<!-- POPUP AD (Adsterra) - keep just before </body> -->
+<script data-cfasync="false" src="https://abscloud.org/1/4fa5ad08287916f8b37a4c147c4b15cd"></script>
+
 </body>
 </html>
